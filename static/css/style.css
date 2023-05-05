@@ -1,0 +1,68 @@
+/* Настройка общих стилей */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #4c4c4c;
+}
+
+header {
+    background-color: #0072c6;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav li:last-child {
+    margin-right: 0;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    margin: 2rem;
+}
+
+footer {
+    background-color: #0072c6;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Настройка стилей заголовка */
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Настройка стилей абзаца */
+p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Настройка стилей логотипа */
+.logo img {
+    max-width: 25%;
+    height: auto;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: right;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logout-link {
+            color: #fff;
+            text-decoration: none;
+        }
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+        .chat-window {
+            background-color: #eee;
+            height: 500px;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+        .message {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .message.sent {
+            background-color: #e6ffee;
+        }
+        .message.received {
+            background-color: #f9f9f9;
+        }
+        .message .username {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        #message-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #send-btn {
+            display: block;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>Welcome, {{user}}!</p>
+        <a class="logout-link" href="/logout">Logout</a>
+    </div>
+    <div class="content">
+        <h1>Chat with {{username}}</h1>
+        <div class="chat-window" id="chat-window">
+            {% for message in messages %}
+            <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
+                <span class="username">{{ message.sender }}</span>
+                <span class="timestamp">{{ message.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                <p>{{ message.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <form id="message-form" method="POST">
+            <input type="hidden" name="recipient" value="{{ username }}">
+            <textarea id="message-input" name="message" placeholder="Type your message..."></textarea>
+            <button id="send-btn" type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        // TODO: implement real-time messaging using WebSockets or similar technology
+    </script>
+</body>
+</html>
+

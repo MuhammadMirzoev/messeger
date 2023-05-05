@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+      .site-link {
+  color: #007bff; /* цвет ссылки */
+  text-decoration: none; /* убрать подчеркивание */
+  font-weight: bold; /* жирный текст */
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+    </style>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            {% if session.logged_in %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('chat') }}">Chat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('friends') }}">Friends</a>
+            </li>
+            {% endif %}
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if session.logged_in %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+<p>Наш сайт: <a href="http://rlicod.ru/" class="site-link">rlicod.ru</a></p>
+    <script src="http://rlicod.ru/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popperjs-core.min.js"
+      integrity="sha384-Qq+ETI/KWuzNV8R0KjJ9y1rTtLWbHe1pJahCNgzDZhxvN/EBvmgKNsLGJ1nMFt2S" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-CR+okwO/iIrL7V90E2RHJQ7VU5X9uM+bNsFj6W8xR7sgwzA1Cj7Eh6kl2u6fd5e9" crossorigin="anonymous">
+    </script>
+  </body>
+</html>

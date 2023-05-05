@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: right;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logout-link {
+            color: #fff;
+            text-decoration: none;
+        }
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+        #username {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #user-id {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .user-btn {
+            display: block; /* Изменение для столбика кнопок */
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+<body>
+    <div class="header">
+        <a href="/" class="logout-link">Home</a> |
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+    <div class="content">
+        <h1>Dashboard</h1>
+        <h3>Your name</h3>
+        <div>
+            <span id="username">{{ username }}</span>
+            <span id="user-id">{{ user_id }}</span>
+        </div>
+        <div id="user-btns">
+            <h3>Your friends</h3>
+            {% for user in users %}
+                <button class="user-btn" data-user-id="{{ user[0] }}">{{ user[1] }}</button>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+  </body>
+</html>

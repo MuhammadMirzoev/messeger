@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YandexLyceumMessenger</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='css/logo1.png') }}" alt="RFMLILyceum">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to RFMLILyceumMessenger</h1>
+        <p>This is a website where you can communicate with your classmates and ask questions to your teacher.</p>
+    </main>
+    <footer>
+        <p>&copy; 2023 RFMLILyceumMessenger</p>
+    </footer>
+</body>
+</html>

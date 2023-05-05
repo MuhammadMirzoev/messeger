@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Friends</h2>
+  {% for friend in friends %}
+    <p>{{ friend[1] }}</p>
+  {% endfor %}
+  <h3>Add Friend</h3>
+  <form method="POST" action="{{ url_for('friends') }}">
+    <label for="friend_name_or_id">Enter friend's username or ID:</label>
+    <input type="text" id="friend_name_or_id" name="friend_name_or_id">
+    <button type="submit">Add Friend</button>
+  </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+{% endblock %}

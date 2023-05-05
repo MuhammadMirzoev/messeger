@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Chat with {{ friend }}</h1>
+    <div id="message-container">
+        {% for message in messages %}
+            {% if message[1] == 1 %}
+                <p class="sent-by-me">{{ message[0] }}</p>
+            {% else %}
+                <p class="sent-by-friend">{{ message[0] }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <form action="{{ url_for('send_message', friend_id=friend_id) }}" method="post">
+        <input type="text" name="message" required>
+        <button type="submit">Send</button>
+    </form>
+{% endblock %}
